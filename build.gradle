@@ -25,6 +25,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-devtools'
+
+    //스프링부트에서 따로 세팅을 해주지않은 외부라이브러리는 버전을 따로 입력해줘야한다.
+    //쿼리 파라미터 로그 남기기 >> 개발단계에선 편하지만, 성능저하 이슈가있으므로 배포할때는 꼭 성능테스트를 해볼 것
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.6.2'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'

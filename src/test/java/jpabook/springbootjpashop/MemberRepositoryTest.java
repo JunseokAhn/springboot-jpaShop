@@ -21,7 +21,7 @@ public class MemberRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(false) //test는 테스트가끝나면 자동으로 데이터를 롤백해서 db에 남지않는데, false해주면 남음
+    @Rollback(false)//test는 테스트가끝나면 자동으로 데이터를 롤백해서 db에 남지않는데, false해주면 남음
     public void testMember() throws Exception {
 
         Member member = new Member();

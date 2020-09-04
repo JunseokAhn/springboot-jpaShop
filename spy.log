@@ -1,0 +1,27 @@
+#1599200693342 | took 0ms | statement | connection 3| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+drop table member if exists
+drop table member if exists;
+#1599200693344 | took 0ms | statement | connection 3| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+drop sequence if exists hibernate_sequence
+drop sequence if exists hibernate_sequence;
+#1599200693347 | took 0ms | statement | connection 4| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+create sequence hibernate_sequence start with 1 increment by 1
+create sequence hibernate_sequence start with 1 increment by 1;
+#1599200693353 | took 0ms | statement | connection 4| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+create table member (member_id bigint not null, username varchar(255), primary key (member_id))
+create table member (member_id bigint not null, username varchar(255), primary key (member_id));
+#1599200695544 | took 6ms | statement | connection 6| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+call next value for hibernate_sequence
+call next value for hibernate_sequence;
+#1599200695643 | took 0ms | statement | connection 6| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+insert into member (username, member_id) values (?, ?)
+insert into member (username, member_id) values ('Junseok', 1);
+#1599200695645 | took 0ms | commit | connection 6| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+
+;
+#1599200695659 | took 1ms | statement | connection 7| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+drop table member if exists
+drop table member if exists;
+#1599200695660 | took 0ms | statement | connection 7| url jdbc:h2:tcp://localhost/~/springboot-jpashop
+drop sequence if exists hibernate_sequence
+drop sequence if exists hibernate_sequence;

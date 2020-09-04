@@ -17,3 +17,5 @@ jpa:
 logging:
   level:
     org.hibernate.SQL: debug
+#    이렇게하면 파라미터 로그를 찍어주긴 하는데, 알아보기 불편하므로 외부라이브러리인 psy를 사용
+#    org.hibernate.type: trace
