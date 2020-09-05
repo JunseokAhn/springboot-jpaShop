@@ -1,6 +1,8 @@
 package jpabook.springbootjpashop;
 
 import com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
+import jpabook.springboot_jpashop.MemberRepository;
+import jpabook.springboot_jpashop.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,14 +27,14 @@ public class MemberRepositoryTest {
     public void testMember() throws Exception {
 
         Member member = new Member();
-        member.setUsername("Junseok");
+        member.setName("Junseok");
 
         Long savedId = memberRepository.save(member);
 
         Member findMember = memberRepository.find(savedId);
 
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-        Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
         
         //객체끼리의 equals는 주소값을 비교하므로 원래라면 false가 나오지만,
         //jpa는 영속성컨텍스트를 통해 비교하므로 같은 id값이면 true가 나옴
