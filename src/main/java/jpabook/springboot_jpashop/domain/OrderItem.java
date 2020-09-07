@@ -1,8 +1,11 @@
 package jpabook.springboot_jpashop.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-@Entity
+@Entity @Getter @Setter
 public class OrderItem {
 
     @Id @GeneratedValue
@@ -20,4 +23,5 @@ public class OrderItem {
     private int orderPrice;
 
     private int count;
+
 }

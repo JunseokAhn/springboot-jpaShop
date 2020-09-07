@@ -1,10 +1,13 @@
 package jpabook.springboot_jpashop.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity @Getter @Setter
 public class Category {
 
     @Id
@@ -26,4 +29,10 @@ public class Category {
 
     @OneToMany(mappedBy = "parent")
     private List<Category> children;
+
+    //편의 메소드
+    public void addChildCategory(Category category){
+        children.add(category);
+        category.setParent(this);
+    }
 }
