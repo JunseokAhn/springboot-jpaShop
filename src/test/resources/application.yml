@@ -1,0 +1,22 @@
+#test에 resources.application.yml을 따로 작성하면 test는 따로 작성된 yml을 따르게 된다.
+spring:
+  datasource:
+    url: jdbc:h2:mem:test #test용 메모리 서버
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+jpa:
+  hibernate:
+    ddl-auto: create
+  properties:
+    hibernate:
+#      show_sql은 sysout으로 하이버네이트가 날리는 쿼리를 보여주는데, 밑에 logging debug를쓰면 로거로 보여주니까 이건 비활성화
+#      show_sql: true
+      format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+#    이렇게하면 파라미터 로그를 찍어주긴 하는데, 알아보기 불편하므로 외부라이브러리인 psy를 사용
+#    org.hibernate.type: trace
