@@ -18,6 +18,7 @@ public class MemberService {
 
 //    @Autowired 단일 생성자인경우, spring에서 자동으로 Autowired를 달아준다
 //    private MemberRepository memberRepository
+
     private final MemberRepository memberRepository;
 
     @Transactional  //쓰기가 필요한 메소드는 따로 Transactional을 붙여준다. readOnry = false
@@ -36,13 +37,13 @@ public class MemberService {
 
     }
 
-    public List<Member> findMembers(){
+    public List<Member> findAll(){
 
         return memberRepository.findAll();
     }
 
-    public Member findMember(Long id){
+    public Member findOne(Long id){
 
-        return memberRepository.find(id);
+        return memberRepository.findOne(id);
     }
 }

@@ -9,12 +9,6 @@ public class SpringbootJpashopApplication {
 
     public static void main(String[] args) {
 
-
-        Member member = new Member();
-        member.setId(1l);
-
-        System.out.println("member id : " + member.getId());
-
         SpringApplication.run(SpringbootJpashopApplication.class, args);
     }
 }
