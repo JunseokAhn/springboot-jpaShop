@@ -1,6 +1,8 @@
 package jpabook.springboot_jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,6 +14,7 @@ import java.util.List;
 @Table(name = "orders")
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id
@@ -72,6 +75,10 @@ public class Order {
 
         return order;
     }
+
+    //생성메소드이외에 객체생성 금지
+    /*protected Order() {
+    }*/
 
     //비즈니스로직
 

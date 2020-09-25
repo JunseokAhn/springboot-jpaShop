@@ -1,6 +1,8 @@
 package jpabook.springboot_jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -27,10 +30,10 @@ public class OrderItem {
 
     private int count;
 
+
     //생성 메소드
-    public static OrderItem createOrderItem (Item item, Order order, int orderPrice, int count){
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
         OrderItem orderItem = new OrderItem();
-        orderItem.setOrder(order);
         orderItem.setItem(item);
         orderItem.setCount(count);
         orderItem.setCount(orderPrice);
@@ -39,6 +42,9 @@ public class OrderItem {
         return orderItem;
     }
 
+    //생성메소드 이외에 객체생성 금지 == @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    /*protected OrderItem() {
+    }*/
 
     public void cancel() {
         item.addStock(count);
