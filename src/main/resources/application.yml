@@ -5,13 +5,16 @@ spring:
     password:
     driver-class-name: org.h2.Driver
 
+server:
+  port: 9090
+
 jpa:
   hibernate:
     ddl-auto: create
   properties:
     hibernate:
-#      show_sql은 sysout으로 하이버네이트가 날리는 쿼리를 보여주는데, 밑에 logging debug를쓰면 로거로 보여주니까 이건 비활성화
-#      show_sql: true
+      #      show_sql은 sysout으로 하이버네이트가 날리는 쿼리를 보여주는데, 밑에 logging debug를쓰면 로거로 보여주니까 이건 비활성화
+      #      show_sql: true
       format_sql: true
 
 logging:
