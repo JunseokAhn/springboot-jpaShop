@@ -64,15 +64,16 @@ public class ItemController {
 
 
     @PostMapping("items/{itemId}/edit")
-    public String updateItemForm2(@ModelAttribute("form") BookForm form) {
-        Book book = new Book();
-        book.setId(form.getId());
-        book.setIsbn(form.getIsbn());
-        book.setAuthor(form.getAuthor());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
+    public String updateItemForm2(@PathVariable("itemId") Long itemId, @ModelAttribute("form") BookForm form) {
+//        Book book = new Book();
+//        book.setId(form.getId());
+//        book.setIsbn(form.getIsbn());
+//        book.setAuthor(form.getAuthor());
+//        book.setPrice(form.getPrice());
+//        book.setStockQuantity(form.getStockQuantity());
 
-        itemService.saveItem(book);
+        //itemService.saveItem(book);    //merge이용
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());    //dirty checking 이용
         return "redirect:/items/itemList";
     }
 }

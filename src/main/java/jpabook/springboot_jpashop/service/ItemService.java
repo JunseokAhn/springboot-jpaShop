@@ -1,5 +1,6 @@
 package jpabook.springboot_jpashop.service;
 
+import jpabook.springboot_jpashop.domain.Book;
 import jpabook.springboot_jpashop.domain.Item;
 import jpabook.springboot_jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,4 +29,10 @@ public class ItemService {
         return itemRepository.findOne(id);
     }
 
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(itemId);
+        item.setName(name);
+        item.setStockQuantity(stockQuantity);
+        item.setPrice(price);
+    }
 }
