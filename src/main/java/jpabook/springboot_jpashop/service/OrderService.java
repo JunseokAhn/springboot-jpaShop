@@ -1,12 +1,16 @@
 package jpabook.springboot_jpashop.service;
 
+import java.util.List;
+
 import jpabook.springboot_jpashop.domain.*;
 import jpabook.springboot_jpashop.repository.ItemRepository;
 import jpabook.springboot_jpashop.repository.MemberRepository;
 import jpabook.springboot_jpashop.repository.OrderRepository;
+import jpabook.springboot_jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -33,5 +37,10 @@ public class OrderService {
     public void cancelOrder(Long orderId) {
         Order order = orderRepository.findOne(orderId);
         order.cancel();
+    }
+
+    public List<Order> findOrder(OrderSearch orderSearch) {
+
+        return orderRepository.findAll(orderSearch);
     }
 }
